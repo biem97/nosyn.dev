@@ -1,14 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Nosyn's Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Son Nguyen`,
+      summary: `San Antonio, TX`,
+      job: {
+        title: `Associate Web Developer`,
+        company: "Plus One Robotics",
+        companyURL: "https://plusonerobotics.com",
+      },
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://nosyn.dev/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `nosyn`,
     },
   },
   plugins: [
@@ -24,7 +29,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
@@ -46,6 +51,14 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: "gatsby-plugin-react-svg",
+            options: {
+              rule: {
+                include: /assets/, // See below to configure properly
+              },
+            },
+          },
         ],
       },
     },
@@ -112,13 +125,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Son Nguyen Blog`,
+        short_name: `noSyn`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,

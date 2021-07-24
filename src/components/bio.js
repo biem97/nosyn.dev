@@ -8,6 +8,8 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import VietnamFlag from "../assets/svg/vietnam-flag.svg"
+import UnitedStatesFlag from "../assets/svg/united-states-flag.svg"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -17,6 +19,11 @@ const Bio = () => {
           author {
             name
             summary
+            job {
+              title
+              company
+              companyURL
+            }
           }
           social {
             twitter
@@ -36,19 +43,25 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["AUTO", "WEBP", "AVIF"]}
-        src="../images/profile-pic.png"
+        src="../assets/images/profile-pic.jpg"
         width={50}
         height={50}
         quality={95}
-        alt="Profile picture"
+        alt="Son Nguyen"
+        title="Son Nguyen"
       />
       {author?.name && (
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
+          Written by <strong>{author.name}</strong> <VietnamFlag />
+          <br />
+          {author?.summary || null} <UnitedStatesFlag />
+          <br />
+          <small>
+            <i>{author.job.title} @</i>
+            <a href={author.job.companyURL}>{author.job.company}</a>
+            <br />
+          </small>
+          <br />
         </p>
       )}
     </div>
