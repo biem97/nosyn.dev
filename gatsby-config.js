@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Nosyn's Blog`,
+    title: `Nosyn Blog`,
     author: {
       name: `Son Nguyen`,
       summary: `San Antonio, TX`,
